@@ -1,1 +1,1042 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Brasserie - Agadir</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: '#FF6B00',
+          brandDark: '#CC5500',
+          night: '#1A1A1A',
+          card: '#2C2C2C',
+          ivory: '#EAEAEA',
+          line: '#444444',
+          inputbg: '#232323'
+        },
+        fontFamily: {
+          serif: ['"Playfair Display"', 'serif'],
+          sans: ['Poppins', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-night text-ivory">
+
+<!-- ============================================ -->
+<!-- HEADER -->
+<!-- ============================================ -->
+<header class="animate-navbar fixed top-0 left-0 w-full bg-night/95 backdrop-blur-md shadow-sm border-b border-line z-50">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between py-4">
+
+    <!-- MODIFIER ICI : Logo du restaurant -->
+    <a href="#home" class="font-display text-2xl md:text-3xl font-extrabold text-brand">La Brasserie</a>
+
+    <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-ivory">
+      <a href="#home" class="hover:text-brand transition-colors">Accueil</a>
+      <a href="#menu" class="hover:text-brand transition-colors">Menu</a>
+      <a href="#videos" class="hover:text-brand transition-colors">Vidéos</a>
+      <a href="#gallery" class="hover:text-brand transition-colors">Galerie</a>
+      <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-2 md:gap-3">
+      <button id="cartBtn" type="button" aria-label="Voir le panier" class="relative w-11 h-11 flex items-center justify-center text-ivory hover:text-brand transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+        <span id="cartCount" class="hidden absolute top-0.5 right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-brand text-white text-[11px] font-bold flex items-center justify-center leading-none">0</span>
+      </button>
+      <a href="#contact" class="hidden md:inline-flex bg-brand hover:bg-brandDark text-white font-semibold text-sm px-6 py-2.5 rounded-full transition-colors">
+        Réserver
+      </a>
+      <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 flex items-center justify-center text-ivory">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div id="mobileMenu" class="hidden lg:hidden bg-night border-t border-line">
+    <nav class="flex flex-col px-6 py-4 gap-4 text-sm font-medium text-ivory">
+      <a href="#home" class="mobile-link py-1">Accueil</a>
+      <a href="#menu" class="mobile-link py-1">Menu</a>
+      <a href="#videos" class="mobile-link py-1">Vidéos</a>
+      <a href="#gallery" class="mobile-link py-1">Galerie</a>
+      <a href="#contact" class="mobile-link py-1">Contact</a>
+      <a href="#contact" class="mt-2 inline-flex items-center justify-center bg-brand text-white font-semibold px-6 py-2.5 rounded-full">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================ -->
+<!-- HERO -->
+<!-- ============================================ -->
+<section id="home" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0">
+    <!-- MODIFIER ICI : Image de fond du Hero (remplacez par une photo de votre restaurant) -->
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&h=800&q=90"
+         alt="Ambiance La Brasserie" class="w-full h-full object-cover" loading="lazy" decoding="async">
+    <div class="absolute inset-0 bg-black/50"></div>
+  </div>
+
+  <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+    <h1 class="animate-title font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold text-brand mb-4 leading-tight">
+      La Brasserie
+    </h1>
+    <p class="animate-subtitle text-white/90 text-lg md:text-2xl lg:text-3xl mb-10 font-light">Spécialités Internationales</p>
+    <a href="#menu" class="animate-cta inline-flex items-center justify-center bg-brand hover:bg-brandDark text-white font-semibold text-base md:text-lg px-8 md:px-10 py-3.5 md:py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(255,107,0,0.65)]">
+      Voir le Menu
+    </a>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- MENU -->
+<!-- ============================================ -->
+<section id="menu" class="py-20 md:py-28 bg-night">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <h2 class="font-display text-3xl md:text-5xl font-bold text-brand text-center mb-10">Notre Menu</h2>
+
+    <!-- Barre de recherche -->
+    <div class="max-w-xl mx-auto mb-6">
+      <div class="relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" />
+        </svg>
+        <input type="search" id="menuSearch" placeholder="Rechercher un plat..." autocomplete="off"
+               class="w-full pl-11 pr-4 py-3.5 rounded-full bg-inputbg border border-line focus:outline-none focus:ring-2 focus:ring-brand text-sm text-ivory placeholder:text-gray-500">
+      </div>
+    </div>
+
+    <!-- Filtres par catégorie -->
+    <div class="flex flex-wrap justify-center gap-2.5 mb-14" role="group" aria-label="Filtrer le menu par catégorie">
+      <button type="button" class="filter-btn is-active px-5 py-2 rounded-full text-sm font-medium border border-line bg-card text-ivory" data-filter="all">Toutes</button>
+      <button type="button" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-line bg-card text-ivory" data-filter="pizzas">Pizzas</button>
+      <button type="button" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-line bg-card text-ivory" data-filter="pates">Pâtes</button>
+      <button type="button" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-line bg-card text-ivory" data-filter="burgers">Burgers</button>
+      <button type="button" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-line bg-card text-ivory" data-filter="plats">Plats</button>
+      <button type="button" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border border-line bg-card text-ivory" data-filter="boissons">Boissons</button>
+    </div>
+
+    <p id="noResults" class="hidden text-center text-gray-400 py-14">Aucun plat ne correspond à votre recherche.</p>
+
+    <!-- ===== PIZZAS ===== -->
+    <div class="category-block" data-category="pizzas">
+    <h3 class="font-display text-2xl md:text-3xl font-bold text-brand mb-8">Pizzas</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 mb-16">
+
+      <!-- Carte 1 -->
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Pizza Margherita">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pizza Margherita" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pizza Margherita" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pizza Margherita" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Pizza Margherita</h5>
+          <p class="text-sm text-gray-400 mb-3">Tomate, mozzarella, basilic</p>
+          <p class="font-semibold text-brand mb-4">75 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Pizza Margherita" data-price="75">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <!-- Carte 2 -->
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Pizza Pepperoni">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pizza Pepperoni" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pizza Pepperoni" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pizza Pepperoni" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Pizza Pepperoni</h5>
+          <p class="text-sm text-gray-400 mb-3">Sauce tomate, mozzarella, pepperoni épicé</p>
+          <p class="font-semibold text-brand mb-4">95 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Pizza Pepperoni" data-price="95">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <!-- Carte 3 -->
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Pizza Fruits de Mer">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pizza Fruits de Mer" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1763049078203-a13163b549d9?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pizza Fruits de Mer" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1765629315623-ea6f41a8bada?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pizza Fruits de Mer" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Pizza Fruits de Mer</h5>
+          <p class="text-sm text-gray-400 mb-3">Crevettes, calamars</p>
+          <p class="font-semibold text-brand mb-4">105 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Pizza Fruits de Mer" data-price="105">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- ===== PÂTES ===== -->
+    <div class="category-block" data-category="pates">
+    <h3 class="font-display text-2xl md:text-3xl font-bold text-brand mb-8">Pâtes</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 mb-16">
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Spaghetti Bolognaise">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&h=800&q=90" alt="Spaghetti Bolognaise" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1673442635965-34f1b36d8944?auto=format&fit=crop&w=1200&h=800&q=90" alt="Spaghetti Bolognaise" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1626844131082-256783844137?auto=format&fit=crop&w=1200&h=800&q=90" alt="Spaghetti Bolognaise" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Spaghetti Bolognaise</h5>
+          <p class="text-sm text-gray-400 mb-3">Sauce tomate maison, viande hachée, parmesan</p>
+          <p class="font-semibold text-brand mb-4">85 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Spaghetti Bolognaise" data-price="85">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Pâtes aux Fruits de Mer">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pâtes aux Fruits de Mer" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1672636402078-4b957a572e4e?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pâtes aux Fruits de Mer" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1632389762435-8c53185e40ae?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pâtes aux Fruits de Mer" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Pâtes aux Fruits de Mer</h5>
+          <p class="text-sm text-gray-400 mb-3">Crevettes, moules, sauce tomate</p>
+          <p class="font-semibold text-brand mb-4">110 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Pâtes aux Fruits de Mer" data-price="110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Tagliatelles Carbonara">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=1200&h=800&q=90" alt="Tagliatelles Carbonara" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&h=800&q=90" alt="Tagliatelles Carbonara" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1588013273468-315fd88ea34c?auto=format&fit=crop&w=1200&h=800&q=90" alt="Tagliatelles Carbonara" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Tagliatelles Carbonara</h5>
+          <p class="text-sm text-gray-400 mb-3">Crème, lardons, jaune d'œuf</p>
+          <p class="font-semibold text-brand mb-4">90 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Tagliatelles Carbonara" data-price="90">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- ===== BURGERS & SANDWICHS ===== -->
+    <div class="category-block" data-category="burgers">
+    <h3 class="font-display text-2xl md:text-3xl font-bold text-brand mb-8">Burgers &amp; Sandwichs</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 mb-16">
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Burger Le Brasserie">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&h=800&q=90" alt="Burger Le Brasserie" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&h=800&q=90" alt="Burger Le Brasserie" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=1200&h=800&q=90" alt="Burger Le Brasserie" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Burger Le Brasserie</h5>
+          <p class="text-sm text-gray-400 mb-3">Steak haché maison, cheddar affiné, oignons caramélisés, sauce signature, pain brioché</p>
+          <p class="font-semibold text-brand mb-4">75 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Burger Le Brasserie" data-price="75">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Sandwich Merguez Grillée">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=1200&h=800&q=90" alt="Sandwich Merguez Grillée" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1481070555726-e2fe8357725c?auto=format&fit=crop&w=1200&h=800&q=90" alt="Sandwich Merguez Grillée" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?auto=format&fit=crop&w=1200&h=800&q=90" alt="Sandwich Merguez Grillée" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Sandwich Merguez Grillée</h5>
+          <p class="text-sm text-gray-400 mb-3">Merguez grillée, poivrons rôtis, oignons rouges, sauce harissa, pain baguette</p>
+          <p class="font-semibold text-brand mb-4">55 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Sandwich Merguez Grillée" data-price="55">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Club Sandwich Poulet Fumé">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1540713434306-58505cf1b6fc?auto=format&fit=crop&w=1200&h=800&q=90" alt="Club Sandwich Poulet Fumé" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1567234669003-dce7a7a88821?auto=format&fit=crop&w=1200&h=800&q=90" alt="Club Sandwich Poulet Fumé" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=1200&h=800&q=90" alt="Club Sandwich Poulet Fumé" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Club Sandwich Poulet Fumé</h5>
+          <p class="text-sm text-gray-400 mb-3">Poulet fumé, bacon, œuf poché, salade, tomate, pain de mie toasté</p>
+          <p class="font-semibold text-brand mb-4">68 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Club Sandwich Poulet Fumé" data-price="68">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- ===== PLATS PRINCIPAUX ===== -->
+    <div class="category-block" data-category="plats">
+    <h3 class="font-display text-2xl md:text-3xl font-bold text-brand mb-8">Plats Principaux</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 mb-16">
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Filet de Poisson Grillé">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1200&h=800&q=90" alt="Filet de Poisson Grillé" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1785487395823-4bfaa62ce463?auto=format&fit=crop&w=1200&h=800&q=90" alt="Filet de Poisson Grillé" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1676300185165-3f543c1fcb72?auto=format&fit=crop&w=1200&h=800&q=90" alt="Filet de Poisson Grillé" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Filet de Poisson Grillé</h5>
+          <p class="text-sm text-gray-400 mb-3">Servi avec légumes et riz</p>
+          <p class="font-semibold text-brand mb-4">120 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Filet de Poisson Grillé" data-price="120">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Steak Frites">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1200&h=800&q=90" alt="Steak Frites" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1614597134736-a8e0616933d5?auto=format&fit=crop&w=1200&h=800&q=90" alt="Steak Frites" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1720701247839-9b8433398385?auto=format&fit=crop&w=1200&h=800&q=90" alt="Steak Frites" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Steak Frites</h5>
+          <p class="text-sm text-gray-400 mb-3">250g, sauce au poivre</p>
+          <p class="font-semibold text-brand mb-4">130 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Steak Frites" data-price="130">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Tajine Poulet Citron Olives">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&w=1200&h=800&q=90" alt="Tajine Poulet Citron Olives" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1643019237176-8ae0859f1123?auto=format&fit=crop&w=1200&h=800&q=90" alt="Tajine Poulet Citron Olives" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1682370207954-c8a9cccaabb4?auto=format&fit=crop&w=1200&h=800&q=90" alt="Tajine Poulet Citron Olives" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Tajine Poulet Citron Olives</h5>
+          <p class="text-sm text-gray-400 mb-3">Spécialité marocaine</p>
+          <p class="font-semibold text-brand mb-4">95 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Tajine Poulet Citron Olives" data-price="95">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- ===== BOISSONS & DESSERTS ===== -->
+    <div class="category-block" data-category="boissons">
+    <h3 class="font-display text-2xl md:text-3xl font-bold text-brand mb-8">Boissons &amp; Desserts</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Tiramisu Maison">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&h=800&q=90" alt="Tiramisu Maison" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1639744211487-b27e3551b07c?auto=format&fit=crop&w=1200&h=800&q=90" alt="Tiramisu Maison" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1567608286687-394db5f7520a?auto=format&fit=crop&w=1200&h=800&q=90" alt="Tiramisu Maison" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Tiramisu Maison</h5>
+          <p class="text-sm text-gray-400 mb-3">Mascarpone, café espresso, cacao amer</p>
+          <p class="font-semibold text-brand mb-4">38 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Tiramisu Maison" data-price="38">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Crème Brûlée à la Vanille">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&w=1200&h=800&q=90" alt="Crème Brûlée à la Vanille" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1676300184943-09b2a08319a3?auto=format&fit=crop&w=1200&h=800&q=90" alt="Crème Brûlée à la Vanille" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1779094543236-6c64b71ae14e?auto=format&fit=crop&w=1200&h=800&q=90" alt="Crème Brûlée à la Vanille" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Crème Brûlée à la Vanille</h5>
+          <p class="text-sm text-gray-400 mb-3">Crème onctueuse, croûte caramélisée</p>
+          <p class="font-semibold text-brand mb-4">35 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Crème Brûlée à la Vanille" data-price="35">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Fondant au Chocolat">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1200&h=800&q=90" alt="Fondant au Chocolat" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1617305855058-336d24456869?auto=format&fit=crop&w=1200&h=800&q=90" alt="Fondant au Chocolat" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1673551490812-eaee2e9bf0ef?auto=format&fit=crop&w=1200&h=800&q=90" alt="Fondant au Chocolat" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Fondant au Chocolat</h5>
+          <p class="text-sm text-gray-400 mb-3">Cœur coulant, glace vanille maison</p>
+          <p class="font-semibold text-brand mb-4">42 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Fondant au Chocolat" data-price="42">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Jus d'Orange Pressé Frais">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=1200&h=800&q=90" alt="Jus d'Orange Pressé Frais" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=1200&h=800&q=90" alt="Jus d'Orange Pressé Frais" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=1200&h=800&q=90" alt="Jus d'Orange Pressé Frais" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Jus d'Orange Pressé Frais</h5>
+          <p class="text-sm text-gray-400 mb-3">Oranges fraîches pressées minute</p>
+          <p class="font-semibold text-brand mb-4">45 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Jus d'Orange Pressé Frais" data-price="45">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Thé à la Menthe Marocain">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&h=800&q=90" alt="Thé à la Menthe Marocain" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=1200&h=800&q=90" alt="Thé à la Menthe Marocain" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=1200&h=800&q=90" alt="Thé à la Menthe Marocain" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Thé à la Menthe Marocain</h5>
+          <p class="text-sm text-gray-400 mb-3">Servi en théière traditionnelle</p>
+          <p class="font-semibold text-brand mb-4">45 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Thé à la Menthe Marocain" data-price="45">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-card bg-card rounded-2xl overflow-hidden shadow-md card-hover border border-line" data-name="Mocktail Fraise-Basilic">
+        <div class="carousel relative h-44 overflow-hidden group">
+        <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+          <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1200&h=800&q=90" alt="Mocktail Fraise-Basilic" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1587223962930-cb7f31384c19?auto=format&fit=crop&w=1200&h=800&q=90" alt="Mocktail Fraise-Basilic" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=1200&h=800&q=90" alt="Mocktail Fraise-Basilic" class="w-full h-44 object-cover flex-shrink-0" loading="lazy" decoding="async">
+        </div>
+        <button type="button" class="carousel-prev absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image précédente">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button type="button" class="carousel-next absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-night/70 text-ivory hover:bg-brand hover:text-white flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100" aria-label="Image suivante">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-brand"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+          <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+        <div class="p-5">
+          <h5 class="font-display text-lg font-bold mb-1">Mocktail Fraise-Basilic</h5>
+          <p class="text-sm text-gray-400 mb-3">Fraises fraîches, basilic, citron vert, sirop maison</p>
+          <p class="font-semibold text-brand mb-4">55 MAD</p>
+          <button type="button" class="add-to-cart-btn w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white text-sm font-semibold py-2.5 rounded-full transition-colors" data-name="Mocktail Fraise-Basilic" data-price="55">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+            Ajouter au panier
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- VIDÉOS -->
+<!-- ============================================ -->
+<section id="videos" class="py-20 md:py-28 bg-night border-t border-line">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <h2 class="font-display text-3xl md:text-5xl font-bold text-brand text-center mb-4">Vidéos</h2>
+    <p class="text-center text-gray-400 text-sm md:text-base mb-16 max-w-xl mx-auto">Survolez une carte (ou touchez-la sur mobile) pour lancer un aperçu en boucle, sans le son.</p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Vidéo de démo (Mixkit, libre de droits). MODIFIER ICI : remplacez data-src par votre propre clip, ex. "videos/pizzas.mp4" -->
+      <div class="video-card relative rounded-2xl overflow-hidden h-56 border border-line cursor-pointer" data-category="pizzas">
+        <video class="w-full h-full object-cover" muted loop playsinline preload="none"
+               poster="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=1200&h=800&q=90"
+               data-src="https://assets.mixkit.co/videos/1666/1666-360.mp4"></video>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span class="video-play-icon w-14 h-14 rounded-full bg-black/50 border-2 border-white/80 flex items-center justify-center text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ms-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+          </span>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+          <h5 class="font-display text-lg font-bold text-white">Pizzas</h5>
+          <span class="video-play-hint text-xs font-medium text-white/80 bg-black/50 px-3 py-1 rounded-full">Cliquez pour agrandir</span>
+        </div>
+      </div>
+
+      <!-- Vidéo de démo (Mixkit, libre de droits). MODIFIER ICI : remplacez data-src par votre propre clip, ex. "videos/pates.mp4" -->
+      <div class="video-card relative rounded-2xl overflow-hidden h-56 border border-line cursor-pointer" data-category="pates">
+        <video class="w-full h-full object-cover" muted loop playsinline preload="none"
+               poster="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&h=800&q=90"
+               data-src="https://assets.mixkit.co/videos/2432/2432-360.mp4"></video>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span class="video-play-icon w-14 h-14 rounded-full bg-black/50 border-2 border-white/80 flex items-center justify-center text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ms-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+          </span>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+          <h5 class="font-display text-lg font-bold text-white">Pâtes</h5>
+          <span class="video-play-hint text-xs font-medium text-white/80 bg-black/50 px-3 py-1 rounded-full">Cliquez pour agrandir</span>
+        </div>
+      </div>
+
+      <!-- Vidéo de démo (Mixkit, libre de droits). MODIFIER ICI : remplacez data-src par votre propre clip, ex. "videos/burgers.mp4" -->
+      <div class="video-card relative rounded-2xl overflow-hidden h-56 border border-line cursor-pointer" data-category="burgers">
+        <video class="w-full h-full object-cover" muted loop playsinline preload="none"
+               poster="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&h=800&q=90"
+               data-src="https://assets.mixkit.co/videos/3532/3532-360.mp4"></video>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span class="video-play-icon w-14 h-14 rounded-full bg-black/50 border-2 border-white/80 flex items-center justify-center text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ms-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+          </span>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+          <h5 class="font-display text-lg font-bold text-white">Burgers &amp; Sandwichs</h5>
+          <span class="video-play-hint text-xs font-medium text-white/80 bg-black/50 px-3 py-1 rounded-full">Cliquez pour agrandir</span>
+        </div>
+      </div>
+
+      <!-- Vidéo de démo (Mixkit, libre de droits, catégorie "Moroccan"). MODIFIER ICI : remplacez data-src par votre propre clip (ex. votre tajine), ex. "videos/plats.mp4" -->
+      <div class="video-card relative rounded-2xl overflow-hidden h-56 border border-line cursor-pointer" data-category="plats">
+        <video class="w-full h-full object-cover" muted loop playsinline preload="none"
+               poster="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&w=1200&h=800&q=90"
+               data-src="https://assets.mixkit.co/videos/4444/4444-360.mp4"></video>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span class="video-play-icon w-14 h-14 rounded-full bg-black/50 border-2 border-white/80 flex items-center justify-center text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ms-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+          </span>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+          <h5 class="font-display text-lg font-bold text-white">Plats Principaux</h5>
+          <span class="video-play-hint text-xs font-medium text-white/80 bg-black/50 px-3 py-1 rounded-full">Cliquez pour agrandir</span>
+        </div>
+      </div>
+
+      <!-- Vidéo de démo (Mixkit, libre de droits). MODIFIER ICI : remplacez data-src par votre propre clip, ex. "videos/boissons.mp4" -->
+      <div class="video-card relative rounded-2xl overflow-hidden h-56 border border-line cursor-pointer" data-category="boissons">
+        <video class="w-full h-full object-cover" muted loop playsinline preload="none"
+               poster="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&h=800&q=90"
+               data-src="https://assets.mixkit.co/videos/9267/9267-360.mp4"></video>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span class="video-play-icon w-14 h-14 rounded-full bg-black/50 border-2 border-white/80 flex items-center justify-center text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ms-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+          </span>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+          <h5 class="font-display text-lg font-bold text-white">Boissons &amp; Desserts</h5>
+          <span class="video-play-hint text-xs font-medium text-white/80 bg-black/50 px-3 py-1 rounded-full">Cliquez pour agrandir</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- GALERIE -->
+<!-- ============================================ -->
+<section id="gallery" class="py-20 md:py-28 bg-night">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <h2 class="font-display text-3xl md:text-5xl font-bold text-brand text-center mb-16">Galerie</h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="gallery-item rounded-2xl overflow-hidden h-56 cursor-pointer" data-index="0">
+        <!-- MODIFIER ICI : Image galerie 1 -->
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&h=800&q=90" alt="Intérieur" class="w-full h-full object-cover gallery-img" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item rounded-2xl overflow-hidden h-56 cursor-pointer" data-index="1">
+        <!-- MODIFIER ICI : Image galerie 2 -->
+        <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1200&h=800&q=90" alt="Terrasse" class="w-full h-full object-cover gallery-img" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item rounded-2xl overflow-hidden h-56 cursor-pointer" data-index="2">
+        <!-- MODIFIER ICI : Image galerie 3 -->
+        <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=1200&h=800&q=90" alt="Pizza" class="w-full h-full object-cover gallery-img" loading="lazy" decoding="async">
+      </div>
+      <div class="gallery-item rounded-2xl overflow-hidden h-56 cursor-pointer" data-index="3">
+        <!-- MODIFIER ICI : Image galerie 4 -->
+        <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?auto=format&fit=crop&w=1200&h=800&q=90" alt="Plats" class="w-full h-full object-cover gallery-img" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- LIGHTBOX GALERIE -->
+<!-- ============================================ -->
+<div id="lightbox" class="hidden fixed inset-0 z-[100] items-center justify-center bg-black/90 p-4">
+  <!-- Bouton fermer -->
+  <button id="lightboxClose" aria-label="Fermer" class="absolute top-5 right-5 md:top-8 md:right-8 w-11 h-11 rounded-full bg-card border border-line text-ivory hover:bg-brand hover:text-white hover:border-brand flex items-center justify-center transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <!-- Flèche précédente -->
+  <button id="lightboxPrev" aria-label="Image précédente" class="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 w-11 h-11 md:w-14 md:h-14 rounded-full bg-card border border-line text-ivory hover:bg-brand hover:text-white hover:border-brand flex items-center justify-center transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+
+  <!-- Flèche suivante -->
+  <button id="lightboxNext" aria-label="Image suivante" class="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 w-11 h-11 md:w-14 md:h-14 rounded-full bg-card border border-line text-ivory hover:bg-brand hover:text-white hover:border-brand flex items-center justify-center transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+
+  <!-- Image + légende -->
+  <figure class="max-w-4xl w-full">
+    <img id="lightboxImg" src="" alt="" class="w-full max-h-[80vh] object-contain rounded-xl shadow-2xl mx-auto">
+    <figcaption id="lightboxCaption" class="text-center text-ivory/80 text-sm mt-4"></figcaption>
+  </figure>
+</div>
+
+<!-- ============================================ -->
+<!-- LECTEUR VIDÉO EN GRAND (Vidéos) -->
+<!-- ============================================ -->
+<div id="videoLightbox" class="hidden fixed inset-0 z-[105] items-center justify-center bg-black/90 p-4">
+  <button id="videoLightboxClose" aria-label="Fermer la vidéo" class="absolute top-5 right-5 md:top-8 md:right-8 w-11 h-11 rounded-full bg-card border border-line text-ivory hover:bg-brand hover:text-white hover:border-brand flex items-center justify-center transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <figure class="max-w-4xl w-full">
+    <video id="videoLightboxPlayer" class="w-full max-h-[80vh] rounded-xl shadow-2xl mx-auto bg-black" controls playsinline></video>
+    <figcaption id="videoLightboxCaption" class="text-center text-ivory/80 text-sm mt-4"></figcaption>
+  </figure>
+</div>
+
+<!-- ============================================ -->
+<!-- CONTACT -->
+<!-- ============================================ -->
+<section id="contact" class="py-20 md:py-28 bg-night">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <h2 class="font-display text-3xl md:text-5xl font-bold text-brand text-center mb-16">Contact</h2>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 shrink-0 rounded-full bg-brand/10 text-brand flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">Adresse</h4>
+            <p class="text-gray-400 text-sm">1 Rue Madrid, Agadir 80000</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 shrink-0 rounded-full bg-brand/10 text-brand flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">Téléphone</h4>
+            <a href="tel:+212522568987" class="text-gray-400 text-sm hover:text-brand transition-colors">05 22 56 89 87</a>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 shrink-0 rounded-full bg-brand/10 text-brand flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-1">Horaires</h4>
+            <p class="text-gray-400 text-sm">Lundi - Dimanche : 11:00 - 23:30</p>
+            <p class="text-gray-400 text-xs italic mt-0.5">Cuisine non-stop</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MODIFIER ICI : Carte Google Maps (ajustez le lien si besoin) -->
+      <div class="rounded-2xl overflow-hidden shadow-lg h-full min-h-[300px]">
+        <iframe
+          src="https://maps.google.com/maps?q=1+Rue+Madrid,+Agadir+80000,+Maroc&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Localisation La Brasserie - 1 Rue Madrid, Agadir"></iframe>
+      </div>
+    </div>
+
+    <!-- Formulaire de réservation -->
+    <div class="mt-16 max-w-3xl mx-auto bg-card rounded-2xl shadow-lg p-8 border border-line">
+      <h3 class="font-display text-2xl md:text-3xl font-bold text-brand mb-6 text-center">Réserver une table</h3>
+
+      <form action="#" class="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-sm font-medium text-ivory mb-1.5">Nom</label>
+          <input type="text" name="nom" class="w-full px-4 py-3 rounded-lg bg-inputbg border border-line focus:outline-none focus:ring-2 focus:ring-brand text-sm text-ivory">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ivory mb-1.5">Téléphone</label>
+          <input type="tel" name="telephone" class="w-full px-4 py-3 rounded-lg bg-inputbg border border-line focus:outline-none focus:ring-2 focus:ring-brand text-sm text-ivory">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ivory mb-1.5">Date</label>
+          <input type="date" name="date" class="w-full px-4 py-3 rounded-lg bg-inputbg border border-line focus:outline-none focus:ring-2 focus:ring-brand text-sm text-ivory">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-ivory mb-1.5">Heure</label>
+          <input type="time" name="heure" class="w-full px-4 py-3 rounded-lg bg-inputbg border border-line focus:outline-none focus:ring-2 focus:ring-brand text-sm text-ivory">
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-ivory mb-1.5">Nombre de personnes</label>
+          <input type="number" name="personnes" min="1" class="w-full px-4 py-3 rounded-lg bg-inputbg border border-line focus:outline-none focus:ring-2 focus:ring-brand text-sm text-ivory">
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-sm font-medium text-ivory mb-1.5">Message</label>
+          <textarea name="message" rows="3" class="w-full px-4 py-3 rounded-lg bg-inputbg border border-line focus:outline-none focus:ring-2 focus:ring-brand text-sm text-ivory resize-none"></textarea>
+        </div>
+        <div class="sm:col-span-2">
+          <button type="submit" class="w-full bg-brand hover:bg-brandDark text-white font-semibold py-3.5 rounded-lg transition-colors">
+            Envoyer la demande
+          </button>
+          <p id="formSuccess" class="hidden text-center text-sm text-green-400 font-medium pt-3">
+            Merci ! Votre demande a bien été envoyée.
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- PANIER (DRAWER) -->
+<!-- ============================================ -->
+<div id="cartOverlay" class="hidden fixed inset-0 bg-black/60 z-[110]"></div>
+<aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-sm bg-card border-l border-line z-[120] translate-x-full flex flex-col">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-line">
+    <h3 class="font-display text-xl font-bold text-brand">Votre Panier</h3>
+    <button id="cartClose" type="button" aria-label="Fermer le panier" class="w-9 h-9 flex items-center justify-center text-ivory hover:text-brand transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="cartItems" class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+    <p id="cartEmptyMsg" class="text-gray-400 text-sm text-center py-10">Votre panier est vide.</p>
+  </div>
+
+  <div class="px-6 py-5 border-t border-line space-y-4">
+    <div class="flex items-center justify-between text-lg font-semibold">
+      <span>Total</span>
+      <span id="cartTotal" class="text-brand">0 MAD</span>
+    </div>
+    <a id="cartWhatsapp" href="#" target="_blank" rel="noopener" class="w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-white font-semibold py-3 rounded-full transition-colors">
+      Commander via WhatsApp
+    </a>
+    <button id="cartClear" type="button" class="w-full text-sm text-gray-400 hover:text-brand transition-colors">Vider le panier</button>
+  </div>
+</aside>
+
+<!-- Toast panier -->
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 opacity-0 bg-card border border-brand text-ivory text-sm font-medium px-5 py-3 rounded-full shadow-lg z-[130] pointer-events-none" aria-live="polite">
+  <span id="toastMsg"></span>
+</div>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer class="bg-night text-ivory/70 py-8 text-center text-sm border-t border-line">
+  &copy; <span id="year"></span> La Brasserie - Agadir. Tous droits réservés.
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
